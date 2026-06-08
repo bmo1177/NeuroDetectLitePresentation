@@ -180,8 +180,6 @@ export default function Presentation() {
         <main className="deck-stage" ref={stageRef}>
           {slides.map((slide, i) => {
             const isActive = i === current;
-            const isNearby = Math.abs(i - current) <= 1;
-            if (!isNearby) return null;
             return (
               <section
                 key={slide.id}
