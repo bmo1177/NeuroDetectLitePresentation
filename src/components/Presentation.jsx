@@ -186,15 +186,9 @@ export default function Presentation() {
               <section
                 key={slide.id}
                 ref={(el) => { slideRefs.current[i] = el; }}
-                className={`slide ${slide.className}`}
+                className={`slide ${slide.className}${isActive ? ' active' : ''}`}
                 data-title={slide.title}
                 aria-label={slide.ariaLabel}
-                style={{
-                  opacity: isActive ? 1 : 0,
-                  pointerEvents: isActive ? 'auto' : 'none',
-                  visibility: isActive ? 'visible' : 'hidden',
-                  zIndex: isActive ? 1 : 0,
-                }}
               >
                 {slide.content()}
               </section>
