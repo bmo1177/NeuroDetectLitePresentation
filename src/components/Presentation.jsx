@@ -178,23 +178,28 @@ export default function Presentation() {
       {/* DECK (FIXED 1920×1080 STAGE) */}
       <div className="deck-viewport">
         <main className="deck-stage" ref={stageRef}>
-          {slides.map((slide, i) => (
-            <section
-              key={slide.id}
-              ref={(el) => { slideRefs.current[i] = el; }}
-              className={`slide ${slide.className}`}
-              data-title={slide.title}
-              aria-label={slide.ariaLabel}
-              style={{
-                opacity: i === current ? 1 : 0,
-                pointerEvents: i === current ? 'auto' : 'none',
-                visibility: i === current ? 'visible' : 'hidden',
-                zIndex: i === current ? 1 : 0,
-              }}
-            >
-              {slide.content()}
-            </section>
-          ))}
+          {slides.map((slide, i) => {
+            const isActive = i === current;
+            const isNearby = Math.abs(i - current) <= 1;
+            if (!isNearby) return null;
+            return (
+              <section
+                key={slide.id}
+                ref={(el) => { slideRefs.current[i] = el; }}
+                className={`slide ${slide.className}`}
+                data-title={slide.title}
+                aria-label={slide.ariaLabel}
+                style={{
+                  opacity: isActive ? 1 : 0,
+                  pointerEvents: isActive ? 'auto' : 'none',
+                  visibility: isActive ? 'visible' : 'hidden',
+                  zIndex: isActive ? 1 : 0,
+                }}
+              >
+                {slide.content()}
+              </section>
+            );
+          })}
         </main>
       </div>
 

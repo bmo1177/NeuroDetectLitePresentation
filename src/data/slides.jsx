@@ -77,7 +77,7 @@ const slides = [
           </div>
           <div>
             <div className="media-card" style={{ height: '100%', padding: 8, background: 'var(--glass)' }}>
-              <img src="assets/mcitrap.png" alt="MCI Trap visualization" style={{ objectFit: 'contain', maxHeight: '100%' }} />
+              <img src="assets/mcitrap.png" alt="MCI Trap visualization" loading="lazy" style={{ objectFit: 'contain', maxHeight: '100%' }} />
             </div>
           </div>
         </div>
@@ -201,12 +201,12 @@ style F fill:#F8FAFC,stroke:#94A3B8,color:#475569,stroke-width:1.5px,stroke-dash
         <div className="two a2" style={{ marginTop: 12 }}>
           <div>
             <div className="media-card" style={{ height: '100%', padding: 4, background: '#050D1A' }}>
-              <video src="assets/2.5d_preprocessing.mp4" autoPlay muted loop playsInline controls style={{ objectFit: 'contain', maxHeight: '100%', cursor: 'pointer' }} />
+              <video src="assets/2.5d_preprocessing.mp4" autoPlay muted loop playsInline preload="none" controls style={{ objectFit: 'contain', maxHeight: '100%', cursor: 'pointer' }} />
             </div>
           </div>
           <div>
             <div className="media-card" style={{ height: '100%', padding: 8, background: 'var(--glass)' }}>
-              <img src="assets/3dvs2.5d.png" alt="3D vs 2.5D comparison" style={{ objectFit: 'contain', maxHeight: '100%' }} />
+              <img src="assets/3dvs2.5d.png" alt="3D vs 2.5D comparison" loading="lazy" style={{ objectFit: 'contain', maxHeight: '100%' }} />
             </div>
           </div>
         </div>
@@ -460,7 +460,7 @@ style C7 fill:#085054,stroke:#085054,color:#FFFFFF,stroke-width:2px`} />
           </div>
           <div>
             <div className="media-card" style={{ height: '100%', padding: 8 }}>
-              <img src="assets/int8%20explanation%20visualisation.png" alt="INT8 Quantization visualization" style={{ objectFit: 'contain', maxHeight: '100%' }} />
+              <img src="assets/int8%20explanation%20visualisation.png" alt="INT8 Quantization visualization" loading="lazy" style={{ objectFit: 'contain', maxHeight: '100%' }} />
             </div>
           </div>
         </div>
@@ -483,7 +483,7 @@ style C7 fill:#085054,stroke:#085054,color:#FFFFFF,stroke-width:2px`} />
         <div className="two a2" style={{ marginTop: 16, alignItems: 'stretch' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div className="media-card" style={{ width: '100%', overflow: 'hidden', background: '#050D1A', aspectRatio: '16/9' }}>
-              <video src="assets/videooftauriapplication.mp4" autoPlay muted loop playsInline controls style={{ objectFit: 'contain', width: '100%', height: '100%', cursor: 'pointer' }} />
+              <video src="assets/videooftauriapplication.mp4" autoPlay muted loop playsInline preload="none" controls style={{ objectFit: 'contain', width: '100%', height: '100%', cursor: 'pointer' }} />
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, justifyContent: 'center' }}>
@@ -526,7 +526,7 @@ style C7 fill:#085054,stroke:#085054,color:#FFFFFF,stroke-width:2px`} />
         <div className="two a2" style={{ marginTop: 16, alignItems: 'stretch' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div className="media-card" style={{ width: '100%', overflow: 'hidden', background: '#050D1A', aspectRatio: '16/9' }}>
-              <video src="assets/videoofandroidapplication.mp4" autoPlay muted loop playsInline controls style={{ objectFit: 'contain', width: '100%', height: '100%', cursor: 'pointer' }} />
+              <video src="assets/videoofandroidapplication.mp4" autoPlay muted loop playsInline preload="none" controls style={{ objectFit: 'contain', width: '100%', height: '100%', cursor: 'pointer' }} />
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, justifyContent: 'center' }}>
@@ -612,7 +612,7 @@ style C7 fill:#085054,stroke:#085054,color:#FFFFFF,stroke-width:2px`} />
           </div>
           <div>
             <div className="media-card" style={{ height: '100%', padding: 8 }}>
-              <img src="assets/gradcamexplanation.png" alt="Grad-CAM explanation" style={{ objectFit: 'contain', maxHeight: '100%' }} />
+              <img src="assets/gradcamexplanation.png" alt="Grad-CAM explanation" loading="lazy" style={{ objectFit: 'contain', maxHeight: '100%' }} />
             </div>
           </div>
         </div>
