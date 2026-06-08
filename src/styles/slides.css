@@ -1,0 +1,374 @@
+/* ===========================================
+   SOURCE: index.html inline <style> block
+   Extracted from: /home/dev-lab/Documents/Alzheimer's-Model-Pipeline/RUN_11/NeuroDetectLite/writing-report/the-presentation/3dpresentation/index.html
+   Contains: Slide layout, title slide, glass base, metric cards, content cards, feature blocks, tables, rules, limitations, future work, comparison table, media card, badge, system status, carousel, two-column, confusion matrix, mermaid diagrams
+   =========================================== */
+
+/* ===========================================
+   TITLE SLIDE (dark + Three.js)
+   =========================================== */
+.title-s .slide-inner{
+  padding:0!important;align-items:center;justify-content:center;
+  background:transparent!important;
+}
+.title-s .slide-inner::before{display:none!important}
+.title-bg{
+  position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 80% 70% at 48% 42%, #0C2233 0%, #050D1A 62%, #020811 100%);
+}
+.title-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle 420px at 35% 55%, rgba(20,168,174,0.08) 0%, transparent 70%),
+    radial-gradient(circle 350px at 70% 30%, rgba(13,115,119,0.06) 0%, transparent 60%);
+  animation:ambientPulse 8s ease-in-out infinite alternate;
+}
+#brainCanvas{position:absolute;inset:0;z-index:1;width:100%;height:100%;pointer-events:none}
+.title-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px}
+.tbadge{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 20px;
+  border-radius:20px;background:rgba(20,168,174,.12);border:1px solid rgba(20,168,174,.3);
+  font-size:13px;color:rgba(20,168,174,.9);margin-bottom:28px;
+  font-weight:700;letter-spacing:.08em;backdrop-filter:blur(8px);
+  text-transform:uppercase;
+}
+.tbadge .dot{width:6px;height:6px;border-radius:50%;background:var(--teal-light);animation:pulseDot 2s infinite}
+.title-s .slide-title{
+  font-family:var(--font-display);
+  font-size:104px;font-weight:900;letter-spacing:-.04em;
+  color:#fff;line-height:1.02;margin-bottom:18px;
+  text-shadow:0 0 80px rgba(20,168,174,.35),0 0 120px rgba(20,168,174,.15);
+  font-optical-sizing:auto;
+}
+.title-s .slide-subtitle{font-size:28px;color:rgba(255,255,255,.9);max-width:800px;line-height:1.7;margin:0 auto;font-weight:450;letter-spacing:.01em}
+.title-s .meta{font-size:22px;color:rgba(255,255,255,.8);margin-top:20px;line-height:1.7;font-weight:400}
+.title-s .meta strong{color:#ffffff;font-weight:600}
+.title-s .metrics{justify-content:center;margin-top:40px}
+.title-s .metric{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(16px)}
+.title-s .metric:hover{background:rgba(20,168,174,.18);border-color:rgba(20,168,174,.45)}
+.title-s .metric-val{color:var(--teal-light)}
+.title-s .metric-lbl{color:rgba(255,255,255,.7)}
+
+/* ===========================================
+   ANIMATIONS (staggered reveal)
+   =========================================== */
+.slide.active .s-tag  {animation:fadeUp .42s var(--ease-out-expo) .07s both}
+.slide.active .s-title{animation:fadeUp .42s var(--ease-out-expo) .13s both}
+.slide.active .s-div  {animation:growX  .36s var(--ease-out-expo) .19s both}
+.slide.active .s-sub  {animation:fadeUp .42s var(--ease-out-expo) .23s both}
+.slide.active .a1     {animation:fadeUp .42s var(--ease-out-expo) .25s both}
+.slide.active .a2     {animation:fadeUp .42s var(--ease-out-expo) .34s both}
+.slide.active .a3     {animation:fadeUp .42s var(--ease-out-expo) .43s both}
+
+/* ===========================================
+   TYPOGRAPHY
+   =========================================== */
+.s-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--teal);margin-bottom:10px;
+}
+.s-tag::before{content:'';display:inline-block;width:20px;height:3px;background:linear-gradient(90deg,var(--teal-light),var(--teal));border-radius:1px}
+.s-title{
+  font-family:var(--font-display);
+  font-size:clamp(64px,5.5vw,88px);font-weight:850;line-height:1.1;letter-spacing:-.03em;color:var(--text);margin-bottom:10px;
+}
+.s-div{width:64px;height:4px;background:linear-gradient(90deg,var(--teal-light),var(--teal-deep));border-radius:2px;box-shadow:0 0 8px rgba(20,168,174,.4)}
+.s-sub{font-size:36px;color:var(--text2);max-width:860px;line-height:1.65;margin-top:12px;font-weight:500}
+
+/* ===========================================
+   GLASS BASE
+   =========================================== */
+.g{
+  background:var(--glass);border:1px solid var(--glass-bdr);
+  border-radius:var(--r);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:var(--sh-sm);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+  transform-style:preserve-3d;will-change:transform;
+}
+.g:hover{box-shadow:var(--sh-md);border-color:rgba(20,168,174,.28)}
+
+/* ===========================================
+   METRIC CARDS
+   =========================================== */
+.metrics{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.metric{
+  flex:1;min-width:108px;text-align:center;padding:17px 20px;
+  position:relative;overflow:hidden;
+  background:var(--glass);border:1px solid var(--glass-bdr);
+  border-radius:var(--r);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:var(--sh-sm);
+  transition:transform .28s var(--ease-out-expo),box-shadow .28s ease,border-color .28s ease;
+  transform-style:preserve-3d;
+}
+.metric::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(20,168,174,.1),transparent 60%);opacity:0;transition:opacity .28s ease;pointer-events:none}
+.metric::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(20,168,174,.3),transparent);
+  opacity:0;transition:opacity .28s ease;
+}
+.metric:hover{box-shadow:var(--sh-glow);border-color:rgba(20,168,174,.4);transform:translateY(-4px) scale(1.02)}
+.metric:hover::before{opacity:1}
+.metric:hover::after{opacity:1}
+.metric-val{font-size:50px;font-weight:800;color:var(--teal);letter-spacing:-.025em;line-height:1}
+.metric-lbl{font-size:22px;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-top:6px;font-weight:700}
+
+/* ===========================================
+   CONTENT CARDS
+   =========================================== */
+.cards{display:flex;gap:12px;margin-top:20px}
+.c{
+  flex:1;padding:20px;
+  background:var(--glass);border:1.5px solid var(--glass-bdr);
+  border-radius:var(--r);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:var(--sh-xs);transition:all .28s var(--ease-out-expo);transform-style:preserve-3d;
+}
+.c:hover{box-shadow:var(--sh-md);border-color:rgba(20,168,174,.3);transform:translateY(-3px)}
+.c-head{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.c-ico{
+  width:32px;height:32px;border-radius:8px;flex-shrink:0;
+  background:var(--teal-pale);border:1px solid rgba(20,168,174,.25);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s ease,border-color .2s ease;
+}
+.c:hover .c-ico{background:rgba(20,168,174,.15);border-color:rgba(20,168,174,.4)}
+.c-ico svg{color:var(--teal)}
+.c h3{font-size:32px;font-weight:750;color:var(--text);line-height:1.3}
+.c p{font-size:28px;color:var(--text);line-height:1.65;font-weight:400}
+
+/* ===========================================
+   FLOW CHIPS
+   =========================================== */
+.flow{display:flex;align-items:center;gap:8px;margin-top:24px;flex-wrap:wrap}
+.fb{
+  padding:10px 16px;text-align:center;min-width:108px;
+  background:var(--glass);border:1px solid var(--glass-bdr);
+  border-radius:var(--r);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:var(--sh-xs);transition:all .28s var(--ease-out-expo);
+}
+.fb:hover{box-shadow:var(--sh-sm);transform:translateY(-2px) scale(1.02);border-color:rgba(20,168,174,.3)}
+.fb.hl{border-color:var(--teal);background:var(--teal-pale)}
+.fb.pri{background:linear-gradient(135deg,var(--teal-pale),rgba(255,255,255,.9));border-color:var(--teal-deep)}
+.fb .ft{font-size:22px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.fb .fs{font-size:20px;color:var(--text3)}
+.farr{color:var(--noise-bdr);font-size:1rem;flex-shrink:0}
+
+/* ===========================================
+   TABLE
+   =========================================== */
+.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:28px;margin-top:12px;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-xs)}
+.tbl thead tr{background:linear-gradient(135deg,var(--teal-deep),var(--teal))}
+.tbl th{padding:13px 15px;text-align:left;font-size:20px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.9);font-weight:700}
+.tbl td{padding:13px 14px;border-bottom:1px solid rgba(20,168,174,.08);transition:background .15s ease;color:var(--text)}
+.tbl tbody tr{background:var(--glass);transition:background .15s}
+.tbl tbody tr:last-child td{border-bottom:none}
+.tbl tbody tr:hover td{background:rgba(20,168,174,.04)}
+.tbl tr.hl td{background:linear-gradient(135deg,var(--teal-pale),rgba(255,255,255,.92));font-weight:600;border-left:3px solid var(--teal-light)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:4px;font-size:16px;font-weight:700;letter-spacing:.02em}
+.b-tl{background:var(--teal-pale);color:var(--teal-deep);border:1px solid rgba(20,168,174,.25)}
+.b-pk{background:var(--purple-bg);color:var(--purple)}
+.star{color:var(--amber);margin-right:2px}
+
+/* ===========================================
+   3D FLIP RULE CARDS
+   =========================================== */
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;perspective:1200px}
+.rule{
+  height:148px;cursor:pointer;transform-style:preserve-3d;
+  transition:transform .55s var(--ease-out-expo);position:relative;
+}
+.rule.flipped{transform:rotateY(180deg)}
+.rule-f,.rule-b{
+  position:absolute;inset:0;border-radius:var(--r);padding:14px 16px;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+}
+.rule-f{background:#fff;border:1.5px solid var(--glass-bdr);box-shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04)}
+.rule-b{background:linear-gradient(135deg,#fff,var(--teal-pale));border:1.5px solid rgba(20,168,174,.25);box-shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);transform:rotateY(180deg)}
+.rule-h{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.rule-n{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0}
+.re .rule-n{background:var(--red-bg);color:var(--red);border:1px solid var(--red-bdr)}
+.rr .rule-n{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bdr)}
+.ri .rule-n{background:var(--blue-bg);color:var(--blue)}
+.rn .rule-n{background:var(--green-bg);color:var(--green);border:1px solid var(--green-bdr)}
+.rule-l{font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+.rule code{display:block;background:rgba(8,80,84,.06);border-radius:6px;padding:6px 10px;font-family:var(--font-mono);font-size:17px;color:var(--teal-deep);border:1px solid rgba(20,168,174,.15);margin:6px 0}
+.rule-d{font-size:20px;color:var(--text2);line-height:1.5;font-weight:440}
+.rule-hint{font-size:13px;color:var(--text3);position:absolute;bottom:8px;right:11px;font-style:italic}
+
+/* ===========================================
+   LIMITATIONS
+   =========================================== */
+.limits{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+.lim{
+  padding:18px;background:var(--glass);border:1px solid var(--glass-bdr);
+  border-radius:var(--r);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:var(--sh-xs);transition:all .28s var(--ease-out-expo);
+}
+.lim:hover{box-shadow:var(--sh-md);transform:translateY(-2px)}
+.lim h4{font-size:30px;font-weight:750;margin-bottom:6px;color:var(--text)}
+.lim .iss{font-size:27px;color:var(--text2);margin-bottom:8px;line-height:1.55;font-weight:400}
+.lim .fix{font-size:26px;color:var(--teal-deep);padding:7px 10px;background:var(--teal-pale);border-radius:6px;border:1px solid rgba(20,168,174,.2);line-height:1.55;font-weight:450}
+
+/* ===========================================
+   FUTURE DIRECTIONS
+   =========================================== */
+.futures{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.fut{
+  padding:18px;text-align:center;
+  background:var(--glass);border:1px solid var(--glass-bdr);
+  border-radius:var(--r);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:var(--sh-xs);transition:all .28s var(--ease-out-expo);transform-style:preserve-3d;
+}
+.fut:hover{box-shadow:var(--sh-glow);border-color:rgba(20,168,174,.35);transform:translateY(-5px) scale(1.02)}
+.fut-icon{margin-bottom:10px;color:var(--teal);transition:transform .28s ease}
+.fut:hover .fut-icon{transform:translateY(-2px) scale(1.1)}
+.fut h4{font-size:30px;font-weight:750;margin-bottom:4px}
+.fut p{font-size:26px;color:var(--text2);line-height:1.55;font-weight:400}
+
+/* ===========================================
+   TWO-COLUMN LAYOUT
+   =========================================== */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch;margin-top:12px}
+.two > div{overflow-y:auto}
+/* Right column: flex column, stretch height, overflow hidden to contain mermaids */
+.two > div:last-child{display:flex;flex-direction:column;justify-content:center;align-items:stretch;min-height:0;overflow:hidden}
+/* Mermaid inside right column — glass card, NO overflow clipping */
+.two > div:last-child .mermaid{
+  flex:1;margin:0;overflow:visible;
+  background:var(--glass);border:1px solid var(--glass-bdr);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:var(--sh-sm);border-radius:var(--r-lg);padding:16px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ===========================================
+   CONFUSION MATRIX
+   =========================================== */
+.cm{border-collapse:separate;border-spacing:0;font-size:20px;margin-top:10px;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-xs)}
+.cm th,.cm td{padding:8px 13px;text-align:center;border:1px solid rgba(20,168,174,.1)}
+.cm th{background:linear-gradient(135deg,var(--teal-deep),var(--teal));color:#fff;font-size:17px;text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+.cm .ok{background:var(--green-bg);font-weight:700;color:var(--green)}
+.cm .err{background:var(--red-bg);color:var(--red)}
+
+/* ===========================================
+   THANK YOU SLIDE
+   =========================================== */
+.thank-s .slide-inner{align-items:center;text-align:center;justify-content:center}
+
+/* ===========================================
+   MERMAID DIAGRAMS
+   =========================================== */
+.mermaid{
+  margin:10px auto 0;
+  max-width:100%;
+  /* No hard max-height — let the diagram breathe */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:var(--r);
+  overflow:visible;  /* CRITICAL: never clip diagrams */
+}
+.mermaid svg{
+  font-family:var(--font-body),sans-serif!important;
+  max-width:100%!important;
+  height:auto!important;
+  width:auto!important;
+  display:block;
+}
+/* Full-width standalone mermaid (non two-col slides) */
+.slide-inner > .mermaid{
+  max-height:620px;
+  overflow:visible;
+}
+/* Two-col mermaid: no height cap, contained by parent flex */
+.two .mermaid{
+  max-height:none;
+  overflow:visible;
+}
+/* SVG inside two-col right column fills its glass card */
+.two > div:last-child .mermaid svg{
+  max-width:100%!important;
+  max-height:100%!important;
+  width:auto!important;
+  height:auto!important;
+}
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* ===========================================
+   MEDIA ELEMENTS (images/videos in slides)
+   =========================================== */
+.media-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-bdr);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--sh-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow .3s ease, transform .28s ease;
+  transform-style: preserve-3d;
+}
+.media-card:hover {
+  box-shadow: var(--sh-md);
+  transform: translateY(-3px);
+}
+.media-card video,
+.media-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.media-card video {
+  background: #050D1A;
+}
+.media-label {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 12px;
+  border-radius: 4px;
+  background: rgba(5,13,26,.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 12px;
+  color: rgba(255,255,255,.8);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.media-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.media-col .media-card {
+  flex: 1;
+}
+
+/* ===========================================
+   PAPER CAROUSEL
+   =========================================== */
+.carousel{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px}
+.carousel-track{position:relative;display:flex;align-items:center;justify-content:center;width:80%;max-width:900px;flex:1;min-height:0}
+.carousel-slide{position:absolute;width:100%;height:100%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s ease,transform .4s ease;transform:scale(.92);pointer-events:none}
+.carousel-slide.active{opacity:1;transform:scale(1);pointer-events:auto}
+.carousel-slide img{max-width:100%;max-height:100%;object-fit:contain;border-radius:var(--r-lg);box-shadow:0 4px 24px rgba(0,0,0,.15);border:1px solid var(--glass-bdr);cursor:pointer}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:#fff;border:1.5px solid var(--glass-bdr);box-shadow:var(--sh-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:all .2s;color:var(--text2)}
+.carousel-btn:hover{box-shadow:var(--sh-md);transform:translateY(-50%) scale(1.08);color:var(--teal)}
+.carousel-btn.prev{left:-22px}
+.carousel-btn.next{right:-22px}
+.carousel-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.carousel-dots{display:flex;gap:8px;align-items:center;justify-content:center}
+.carousel-dot{width:10px;height:10px;border-radius:50%;background:var(--glass-bdr);border:none;cursor:pointer;transition:all .2s;padding:0}
+.carousel-dot.active{background:var(--teal);width:26px;border-radius:5px}
+.carousel-page-label{font-size:15px;color:var(--text3);font-weight:500}

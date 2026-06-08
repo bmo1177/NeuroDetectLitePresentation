@@ -1,0 +1,128 @@
+/* ===========================================
+   SOURCE: index.html inline <style> block
+   Extracted from: /home/dev-lab/Documents/Alzheimer's-Model-Pipeline/RUN_11/NeuroDetectLite/writing-report/the-presentation/3dpresentation/index.html
+   Contains: All @keyframes and media queries (print, reduced-motion, mobile portrait, pointer coarse)
+   =========================================== */
+
+/* ===========================================
+   @keyframes — ambientPulse (title-bg)
+   =========================================== */
+@keyframes ambientPulse{
+  0%{opacity:.6;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.05)}
+}
+
+/* ===========================================
+   @keyframes — pulseDot (tbadge)
+   =========================================== */
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+
+/* ===========================================
+   @keyframes — staggered reveal (slide.active)
+   =========================================== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes growX{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ===========================================
+   @keyframes — tilt banner
+   =========================================== */
+@keyframes tiltBannerIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes tiltBannerOut {
+  from { opacity: 1; transform: translateX(-50%) translateY(0); }
+  to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
+/* ===========================================
+   PRINT STYLES
+   =========================================== */
+@media print{
+  html,body{width:1920px;height:auto;overflow:visible;background:#fff}
+  .deck-viewport{position:static;overflow:visible;background:#fff}
+  .deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}
+  .slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}
+  .slide:last-child{break-after:auto;page-break-after:auto}
+  .deck-controls,.edit-hotzone,.edit-toggle,.arrow,.slide-dots,.slide-num,.kbd-hint,.progress{display:none!important}
+}
+
+/* ===========================================
+   REDUCED MOTION
+   =========================================== */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.2s!important;
+  }
+}
+
+/* ===========================================
+   PORTRAIT / MOBILE MEDIA QUERIES
+   =========================================== */
+@media (max-width: 768px) {
+  .kbd-hint { display: none !important; }
+  .arrow { width: 44px !important; height: 44px !important; }
+  .arrow svg { width: 24px !important; height: 24px !important; }
+  .slide-dots { bottom: 12px !important; gap: 6px !important; }
+  .slide-num { bottom: 14px !important; right: 16px !important; font-size: 12px !important; }
+  .progress { height: 3px !important; }
+
+  /* Stack two-column layouts vertically */
+  .two { flex-direction: column !important; }
+  .two > div { min-width: 100% !important; }
+
+  /* Reduce font sizes for small screens */
+  .s-title { font-size: clamp(36px, 7vw, 52px) !important; }
+  .s-sub { font-size: 20px !important; }
+  .c h3 { font-size: 20px !important; }
+  .c p { font-size: 17px !important; }
+  .tbl { font-size: 16px !important; }
+  .tbl th { font-size: 13px !important; }
+  .rule-d { font-size: 14px !important; }
+  .rule code { font-size: 12px !important; }
+  .metric-val { font-size: 32px !important; }
+  .metric-lbl { font-size: 13px !important; }
+  .lim h4, .fut h4 { font-size: 20px !important; }
+  .lim .iss, .lim .fix, .fut p { font-size: 16px !important; }
+  .fb .ft { font-size: 15px !important; }
+  .fb .fs { font-size: 13px !important; }
+  .cm { font-size: 14px !important; }
+  .cm th { font-size: 12px !important; }
+  .badge { font-size: 12px !important; }
+  .rule-n { width: 26px !important; height: 26px !important; font-size: 12px !important; }
+  .rule-l { font-size: 12px !important; }
+  .title-s .slide-title { font-size: clamp(40px, 9vw, 64px) !important; }
+  .title-s .slide-subtitle { font-size: 18px !important; }
+  .title-s .meta { font-size: 15px !important; }
+
+  /* Rules grid: 1 column on mobile */
+  .rules { grid-template-columns: 1fr !important; gap: 10px !important; }
+
+  /* Metrics grid: 2 columns */
+  .metrics { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Carousel adjustments */
+  .carousel-track { gap: 8px !important; }
+  .carousel-btn { width: 36px !important; height: 36px !important; }
+}
+
+@media (orientation: portrait) and (min-width: 769px) {
+  .two { flex-direction: column !important; }
+  .rules { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ===========================================
+   LARGER TOUCH TARGETS
+   =========================================== */
+@media (pointer: coarse) {
+  .arrow { min-width: 48px !important; min-height: 48px !important; }
+  .carousel-btn { min-width: 44px !important; min-height: 44px !important; }
+  .rule { min-height: 80px; }
+  .c { padding: 16px !important; }
+  .fb { padding: 14px 16px !important; }
+  .lim, .fut { padding: 14px 16px !important; }
+  button, [role="button"] { min-height: 44px; }
+}

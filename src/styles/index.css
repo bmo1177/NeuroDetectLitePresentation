@@ -1,0 +1,79 @@
+/* ===========================================
+   SOURCE: index.html inline <style> block
+   Extracted from: /home/dev-lab/Documents/Alzheimer's-Model-Pipeline/RUN_11/NeuroDetectLite/writing-report/the-presentation/3dpresentation/index.html
+   Contains: CSS custom properties, reset, base body/html, sr-only
+   =========================================== */
+
+/* ===========================================
+   RESET
+   =========================================== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+/* ===========================================
+   CSS CUSTOM PROPERTIES (THEME)
+   =========================================== */
+:root{
+  --stage-bg:#EDF1F7;
+  --slide-bg:#EDF1F7;
+  --teal:       #0D7377; --teal-deep: #085054; --teal-light: #14A8AE;
+  --teal-pale:  #E0F4F5; --teal-glow: rgba(20,168,174,0.22);
+  --bg:         #EDF1F7;
+  --glass:      rgba(255,255,255,0.72);
+  --glass-b:    rgba(255,255,255,0.88);
+  --glass-bdr:  rgba(255,255,255,0.95);
+  --noise-bdr:  rgba(14,168,174,0.18);
+  --text:       #030712; --text2: #0F172A; --text3: #334155;
+  --green:      #16A34A; --green-bg: #F0FDF4; --green-bdr: rgba(22,163,74,0.2);
+  --amber:      #D97706; --amber-bg: #FFFBEB; --amber-bdr: rgba(217,119,6,0.2);
+  --red:        #DC2626; --red-bg:   #FEF2F2; --red-bdr:   rgba(220,38,38,0.2);
+  --blue:       #2563EB; --blue-bg:  #EFF6FF;
+  --purple:     #7C3AED; --purple-bg:#F5F3FF;
+  --sh-xs:  0 1px 3px rgba(8,80,84,0.06);
+  --sh-sm:  0 2px 8px  rgba(8,80,84,0.08), 0 1px 3px rgba(8,80,84,0.04);
+  --sh-md:  0 6px 22px rgba(8,80,84,0.10), 0 2px 6px  rgba(8,80,84,0.05);
+  --sh-lg:  0 14px 44px rgba(8,80,84,0.14), 0 4px 14px rgba(8,80,84,0.07);
+  --sh-glow:0 0 0 2px var(--teal-glow), 0 6px 24px rgba(13,115,119,0.22);
+  --r:10px; --r-lg:16px;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-normal: 0.6s;
+}
+
+/* ===========================================
+   VIEWPORT-BASE: FIXED 16:9 STAGE
+   =========================================== */
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg);font-family:var(--font-body);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+:focus-visible{outline:2px solid var(--teal-light);outline-offset:2px;border-radius:4px}
+
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}
+
+.deck-stage{
+  position:absolute;left:0;top:0;width:1920px;height:1080px;
+  overflow:hidden;transform-origin:0 0;background:var(--slide-bg);
+}
+
+.slide{
+  position:absolute;inset:0;width:1920px;height:1080px;
+  overflow:hidden;display:block;
+  visibility:hidden;opacity:0;pointer-events:none;
+  background:var(--slide-bg);
+  transition:opacity .45s var(--ease-out-expo);
+}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}
+/* Failsafe: first slide visible even if JS fails */
+.slide:first-child{visibility:visible;opacity:1;pointer-events:auto;z-index:1}
+img,video,canvas,svg{max-width:100%;max-height:100%}
+
+/* ===========================================
+   GRAIN OVERLAY
+   =========================================== */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  opacity:0.028;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
