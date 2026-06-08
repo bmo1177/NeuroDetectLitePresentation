@@ -4,6 +4,7 @@ import HUD from '../components/HUD';
 import MermaidDiagram from '../components/MermaidDiagram';
 import RuleCard from '../components/RuleCard';
 import PaperCarousel from '../components/PaperCarousel';
+import QRCode from '../components/QRCode';
 
 const slides = [
   /* ─── SLIDE 1: Title ─── */
@@ -545,26 +546,8 @@ style C7 fill:#085054,stroke:#085054,color:#FFFFFF,stroke-width:2px`} />
               <p>Android: ONNX Runtime + Kotlin/Native. iOS: CoreML conversion planned. Edge-first with <strong>1.93 MB</strong> quantized model.</p>
             </div>
             <div className="c" style={{ padding: '14px 18px', display: 'flex', alignItems: 'center', gap: 16 }}>
-              <div style={{ flexShrink: 0, width: 90, height: 90, background: '#fff', borderRadius: 8, padding: 6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg viewBox="0 0 29 29" width="78" height="78" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="29" height="29" fill="#fff"/>
-                  <g fill="#000">
-                    <rect x="0" y="0" width="7" height="7"/><rect x="22" y="0" width="7" height="7"/><rect x="0" y="22" width="7" height="7"/>
-                    <rect x="1" y="1" width="5" height="5" fill="#fff"/><rect x="23" y="1" width="5" height="5" fill="#fff"/><rect x="1" y="23" width="5" height="5" fill="#fff"/>
-                    <rect x="2" y="2" width="3" height="3"/><rect x="24" y="2" width="3" height="3"/><rect x="2" y="24" width="3" height="3"/>
-                    <rect x="8" y="0" width="2" height="2"/><rect x="12" y="0" width="1" height="1"/><rect x="15" y="0" width="2" height="2"/><rect x="19" y="0" width="1" height="1"/>
-                    <rect x="8" y="3" width="1" height="1"/><rect x="10" y="2" width="2" height="1"/><rect x="14" y="3" width="1" height="2"/><rect x="17" y="2" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/>
-                    <rect x="8" y="5" width="2" height="1"/><rect x="11" y="4" width="1" height="1"/><rect x="13" y="5" width="2" height="1"/><rect x="16" y="4" width="2" height="2"/><rect x="19" y="5" width="2" height="1"/>
-                    <rect x="0" y="8" width="2" height="1"/><rect x="3" y="8" width="1" height="2"/><rect x="5" y="9" width="2" height="1"/><rect x="8" y="8" width="2" height="2"/><rect x="11" y="8" width="1" height="1"/><rect x="14" y="8" width="1" height="2"/><rect x="17" y="9" width="1" height="1"/><rect x="20" y="8" width="2" height="2"/><rect x="24" y="8" width="1" height="1"/><rect x="27" y="8" width="2" height="1"/>
-                    <rect x="0" y="11" width="1" height="1"/><rect x="2" y="10" width="1" height="2"/><rect x="5" y="11" width="1" height="1"/><rect x="8" y="11" width="1" height="1"/><rect x="11" y="10" width="2" height="2"/><rect x="14" y="11" width="2" height="1"/><rect x="17" y="10" width="1" height="2"/><rect x="20" y="11" width="1" height="1"/><rect x="23" y="10" width="2" height="1"/><rect x="26" y="11" width="1" height="2"/><rect x="28" y="10" width="1" height="1"/>
-                    <rect x="0" y="14" width="2" height="2"/><rect x="3" y="14" width="1" height="1"/><rect x="5" y="14" width="1" height="2"/><rect x="8" y="14" width="1" height="1"/><rect x="10" y="13" width="2" height="1"/><rect x="13" y="14" width="1" height="1"/><rect x="16" y="13" width="2" height="2"/><rect x="20" y="14" width="1" height="1"/><rect x="22" y="13" width="1" height="2"/><rect x="25" y="14" width="2" height="1"/><rect x="28" y="14" width="1" height="1"/>
-                    <rect x="0" y="17" width="1" height="1"/><rect x="2" y="17" width="2" height="1"/><rect x="5" y="17" width="1" height="1"/><rect x="8" y="16" width="1" height="2"/><rect x="11" y="17" width="1" height="1"/><rect x="14" y="16" width="2" height="2"/><rect x="17" y="17" width="1" height="1"/><rect x="20" y="16" width="2" height="1"/><rect x="23" y="17" width="1" height="2"/><rect x="26" y="16" width="2" height="1"/><rect x="28" y="17" width="1" height="1"/>
-                    <rect x="0" y="20" width="2" height="1"/><rect x="3" y="19" width="1" height="2"/><rect x="6" y="20" width="1" height="1"/><rect x="8" y="20" width="2" height="1"/><rect x="11" y="19" width="2" height="2"/><rect x="15" y="20" width="1" height="1"/><rect x="17" y="19" width="1" height="2"/><rect x="20" y="20" width="1" height="1"/><rect x="23" y="19" width="2" height="1"/><rect x="26" y="20" width="1" height="1"/><rect x="28" y="19" width="1" height="2"/>
-                    <rect x="8" y="22" width="2" height="2"/><rect x="11" y="22" width="1" height="1"/><rect x="14" y="22" width="2" height="1"/><rect x="17" y="23" width="1" height="1"/><rect x="20" y="22" width="2" height="2"/><rect x="24" y="22" width="1" height="1"/><rect x="27" y="23" width="2" height="1"/>
-                    <rect x="8" y="25" width="1" height="1"/><rect x="11" y="24" width="2" height="2"/><rect x="15" y="25" width="1" height="1"/><rect x="17" y="24" width="2" height="1"/><rect x="20" y="25" width="1" height="2"/><rect x="23" y="24" width="1" height="1"/><rect x="26" y="25" width="2" height="2"/>
-                    <rect x="8" y="27" width="2" height="2"/><rect x="12" y="27" width="1" height="2"/><rect x="15" y="28" width="2" height="1"/><rect x="18" y="27" width="1" height="2"/><rect x="21" y="28" width="2" height="1"/><rect x="24" y="27" width="2" height="2"/><rect x="27" y="28" width="2" height="1"/>
-                  </g>
-                </svg>
+              <div style={{ flexShrink: 0, width: 110, height: 110, background: '#fff', borderRadius: 8, padding: 6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <QRCode url="https://neuro-detect-lite.vercel.app/" size={98} quiet={2} />
               </div>
               <div>
                 <p style={{ fontSize: 16, fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>Try the Live Demo</p>
