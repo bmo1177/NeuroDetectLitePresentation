@@ -1,5 +1,14 @@
 import { useEffect, useRef } from 'react';
 
+let mermaidPromise = null;
+
+function getMermaid() {
+  if (!mermaidPromise) {
+    mermaidPromise = import('mermaid/dist/mermaid.core.mjs').then(m => m.default);
+  }
+  return mermaidPromise;
+}
+
 export default function MermaidDiagram({ chart, className = '' }) {
   const ref = useRef(null);
 
@@ -8,7 +17,7 @@ export default function MermaidDiagram({ chart, className = '' }) {
     let cancelled = false;
     const render = async () => {
       try {
-        const mermaid = (await import('mermaid')).default;
+        const mermaid = await getMermaid();
         mermaid.initialize({
           startOnLoad: false,
           theme: 'base',

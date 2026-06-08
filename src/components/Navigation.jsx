@@ -1,18 +1,5 @@
-import { useEffect } from 'react';
-
 export default function Navigation({ current, total, go, bannerVisible, requestPermission }) {
   const progressWidth = total > 1 ? (current / (total - 1)) * 100 : 0;
-
-  useEffect(() => {
-    const handler = (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') go(current + 1);
-      else if (e.key === 'ArrowLeft' || e.key === 'Backspace') go(current - 1);
-      else if (e.key === 'Home') go(0);
-      else if (e.key === 'End') go(total - 1);
-    };
-    document.addEventListener('keydown', handler);
-    return () => document.removeEventListener('keydown', handler);
-  }, [current, total, go]);
 
   const dots = [];
   for (let i = 0; i < total; i++) {
