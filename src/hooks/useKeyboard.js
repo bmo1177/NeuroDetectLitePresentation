@@ -7,12 +7,12 @@ export function useKeyboard({ go, current, total, toggleThumbnails, toggleShortc
         if (e.key === 'Escape') closeAllOverlays();
         return;
       }
-      if (mediaGalleryOpen()) {
+      if (mediaGalleryOpen) {
         if (e.key === 'Escape') closeMediaGallery();
         else if (e.key === 'm' || e.key === 'M') toggleMediaGallery();
         return;
       }
-      if (lightboxOpen()) {
+      if (lightboxOpen) {
         if (e.key === 'Escape') closeLightbox();
         return;
       }

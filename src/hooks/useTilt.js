@@ -21,7 +21,7 @@ export function useTilt({ go, current, overlaysOpen, lightboxOpen, mediaGalleryO
     const TILT_THRESHOLD = 30;
 
     const handleOrientation = (e) => {
-      if (overlaysOpen() || lightboxOpen() || mediaGalleryOpen()) return;
+      if (overlaysOpen() || lightboxOpen || mediaGalleryOpen) return;
       const gamma = e.gamma;
       if (gamma === null) return;
       const now = Date.now();
